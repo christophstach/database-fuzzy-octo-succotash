@@ -1,0 +1,5 @@
+jdbc:
+  url: jdbc:postgresql://localhost/test
+  username: username
+  password: password
+  ssl: true
