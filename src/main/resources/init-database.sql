@@ -1,55 +1,54 @@
-DROP TABLE IF EXISTS PersonsAreResponsibleForRooms;
-DROP TABLE IF EXISTS Tasks;
-DROP TABLE IF EXISTS Rooms;
-DROP TABLE IF EXISTS Persons;
-DROP TABLE IF EXISTS Flats;
+DROP TABLE IF EXISTS persons_are_responsible_for_rooms;
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS persons;
+DROP TABLE IF EXISTS flats;
+
+--DROP TABLE IF EXISTS expenses;
+DROP TABLE IF EXISTS products;
 
 
-DROP TABLE IF EXISTS Expenses;
-DROP TABLE IF EXISTS Products;
-
-
-CREATE TABLE Flats (
-  FlatId     SERIAL NOT NULL PRIMARY KEY,
-  Street     VARCHAR(255),
-  PostalCode VARCHAR(20),
-  City       VARCHAR(255)
+CREATE TABLE flats (
+  flat_id     SERIAL NOT NULL PRIMARY KEY,
+  street      VARCHAR(255),
+  postal_code VARCHAR(20),
+  city        VARCHAR(255)
 );
 
-CREATE TABLE Persons (
-  PersonId  SERIAL NOT NULL PRIMARY KEY,
-  FlatId    INTEGER REFERENCES Flats,
-  FirstName VARCHAR(255),
-  LastName  VARCHAR(255)
+CREATE TABLE persons (
+  person_id  SERIAL NOT NULL PRIMARY KEY,
+  flat_id    INTEGER REFERENCES flats,
+  first_name VARCHAR(255),
+  last_name  VARCHAR(255)
 );
 
-CREATE TABLE Rooms (
-  RoomId   SERIAL NOT NULL PRIMARY KEY,
-  PersonId INTEGER REFERENCES Persons,
-  FlatId   INTEGER REFERENCES Flats,
-  Name     VARCHAR(255)
+CREATE TABLE rooms (
+  room_id   SERIAL NOT NULL PRIMARY KEY,
+  person_id INTEGER REFERENCES persons,
+  flat_id   INTEGER REFERENCES flats,
+  name      VARCHAR(255)
 );
 
 /**
  * Beziehung
  */
-CREATE TABLE PersonsAreResponsibleForRooms (
-  RoomId    INTEGER REFERENCES Rooms,
-  PersonId  INTEGER REFERENCES Persons,
-  StartDate TIMESTAMP NOT NULL,
-  EndDate   TIMESTAMP NOT NULL,
-  PRIMARY KEY (RoomId, PersonId, StartDate, EndDate)
+CREATE TABLE persons_are_responsible_for_rooms (
+  room_id    INTEGER REFERENCES rooms,
+  person_id  INTEGER REFERENCES persons,
+  start_date TIMESTAMP NOT NULL,
+  end_date   TIMESTAMP NOT NULL,
+  PRIMARY KEY (room_id, person_id, start_date, end_date)
 );
 
-CREATE TABLE Tasks (
-  TaskId SERIAL NOT NULL PRIMARY KEY,
-  RoomId INTEGER REFERENCES Rooms,
-  Name   VARCHAR(255),
-  Points INTEGER
+CREATE TABLE tasks (
+  task_id SERIAL NOT NULL PRIMARY KEY,
+  room_id INTEGER REFERENCES rooms,
+  name    VARCHAR(255),
+  points  INTEGER
 );
 
 
-CREATE TABLE Products (
+CREATE TABLE products (
   ProductId SERIAL       NOT NULL PRIMARY KEY,
   Name      VARCHAR(255) NOT NULL,
   Price     FLOAT        NOT NULL
