@@ -24,7 +24,6 @@ CREATE TABLE persons (
 
 CREATE TABLE rooms (
   room_id   SERIAL NOT NULL PRIMARY KEY,
-  person_id INTEGER REFERENCES persons,
   flat_id   INTEGER REFERENCES flats,
   name      VARCHAR(255)
 );
