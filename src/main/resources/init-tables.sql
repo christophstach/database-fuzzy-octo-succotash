@@ -49,7 +49,7 @@ CREATE TABLE tasks (
 
 
 CREATE TABLE products (
-  ProductId SERIAL       NOT NULL PRIMARY KEY,
-  Name      VARCHAR(255) NOT NULL,
-  Price     FLOAT        NOT NULL
+  product_id SERIAL       NOT NULL PRIMARY KEY,
+  name       VARCHAR(255) NOT NULL,
+  price      FLOAT        NOT NULL
 );
