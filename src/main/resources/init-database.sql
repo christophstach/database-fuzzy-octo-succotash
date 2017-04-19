@@ -1,0 +1,56 @@
+DROP TABLE IF EXISTS PersonsAreResponsibleForRooms;
+DROP TABLE IF EXISTS Tasks;
+DROP TABLE IF EXISTS Rooms;
+DROP TABLE IF EXISTS Persons;
+DROP TABLE IF EXISTS Flats;
+
+
+DROP TABLE IF EXISTS Expenses;
+DROP TABLE IF EXISTS Products;
+
+
+CREATE TABLE Flats (
+  FlatId     SERIAL NOT NULL PRIMARY KEY,
+  Street     VARCHAR(255),
+  PostalCode VARCHAR(20),
+  City       VARCHAR(255)
+);
+
+CREATE TABLE Persons (
+  PersonId  SERIAL NOT NULL PRIMARY KEY,
+  FlatId    INTEGER REFERENCES Flats,
+  FirstName VARCHAR(255),
+  LastName  VARCHAR(255)
+);
+
+CREATE TABLE Rooms (
+  RoomId   SERIAL NOT NULL PRIMARY KEY,
+  PersonId INTEGER REFERENCES Persons,
+  FlatId   INTEGER REFERENCES Flats,
+  Name     VARCHAR(255)
+);
+
+/**
+ * Beziehung
+ */
+CREATE TABLE PersonsAreResponsibleForRooms (
+  RoomId    INTEGER REFERENCES Rooms,
+  PersonId  INTEGER REFERENCES Persons,
+  StartDate TIMESTAMP NOT NULL,
+  EndDate   TIMESTAMP NOT NULL,
+  PRIMARY KEY (RoomId, PersonId, StartDate, EndDate)
+);
+
+CREATE TABLE Tasks (
+  TaskId SERIAL NOT NULL PRIMARY KEY,
+  RoomId INTEGER REFERENCES Rooms,
+  Name   VARCHAR(255),
+  Points INTEGER
+);
+
+
+CREATE TABLE Products (
+  ProductId SERIAL       NOT NULL PRIMARY KEY,
+  Name      VARCHAR(255) NOT NULL,
+  Price     FLOAT        NOT NULL
+);
