@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS persons_buy_products;
 DROP TABLE IF EXISTS persons_are_responsible_for_rooms;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS rooms;
@@ -23,9 +24,9 @@ CREATE TABLE persons (
 );
 
 CREATE TABLE rooms (
-  room_id   SERIAL NOT NULL PRIMARY KEY,
-  flat_id   INTEGER REFERENCES flats,
-  name      VARCHAR(255)
+  room_id SERIAL NOT NULL PRIMARY KEY,
+  flat_id INTEGER REFERENCES flats,
+  name    VARCHAR(255)
 );
 
 /**
@@ -52,3 +53,15 @@ CREATE TABLE products (
   name       VARCHAR(255) NOT NULL,
   price      FLOAT        NOT NULL
 );
+
+
+/**
+ * Beziehung
+ */
+CREATE TABLE persons_buy_products (
+  person_id  INTEGER REFERENCES persons,
+  product_id INTEGER REFERENCES products,
+  date       TIMESTAMP NOT NULL,
+  quantity   INTEGER   NOT NULL,
+  PRIMARY KEY (person_id, product_id, date)
+)
