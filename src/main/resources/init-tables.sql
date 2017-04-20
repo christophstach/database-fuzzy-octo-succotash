@@ -1,11 +1,11 @@
+DROP TABLE IF EXISTS products_have_categories;
 DROP TABLE IF EXISTS persons_buy_products;
 DROP TABLE IF EXISTS persons_are_responsible_for_rooms;
+DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS persons;
 DROP TABLE IF EXISTS flats;
-
---DROP TABLE IF EXISTS expenses;
 DROP TABLE IF EXISTS products;
 
 
@@ -64,5 +64,16 @@ CREATE TABLE persons_buy_products (
   date       TIMESTAMP NOT NULL,
   quantity   INTEGER   NOT NULL,
   PRIMARY KEY (person_id, product_id, date)
+);
+
+CREATE TABLE categories (
+  category_id SERIAL PRIMARY KEY,
+  name        VARCHAR(255)
+);
+
+CREATE TABLE products_have_categories (
+  product_id  INTEGER NOT NULL REFERENCES products,
+  category_id INTEGER NOT NULL REFERENCES categories,
+  PRIMARY KEY (product_id, category_id)
 );
 
