@@ -48,4 +48,5 @@ INSERT INTO rooms (flat_id, name) VALUES (6, 'Küche');
 INSERT INTO rooms (flat_id, name) VALUES (6, 'Badezimmer');
 INSERT INTO rooms (flat_id, name) VALUES (6, 'Wohnzimmer');
 /*Insert into tasks*/
+  
 
