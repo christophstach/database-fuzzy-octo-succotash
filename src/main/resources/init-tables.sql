@@ -64,4 +64,5 @@ CREATE TABLE persons_buy_products (
   date       TIMESTAMP NOT NULL,
   quantity   INTEGER   NOT NULL,
   PRIMARY KEY (person_id, product_id, date)
-)
+);
+
