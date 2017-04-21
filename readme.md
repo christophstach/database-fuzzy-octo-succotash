@@ -25,12 +25,12 @@
 
 ### 4. Sql Dateien erstellen
 
-- Erstelle init-tables.sql
-- Erstelle insert-data.sql
+- Erstelle init-tables.sql: x
+- Erstelle insert-data.sql: x
 
 ### 5. Mathe+SQL Befehle
 
-- 1x Operatorbaum & SQL für Minus, Vereinigungsmenge, Schnittmenge
+- 1x Operatorbaum & SQL für Minus, Vereinigungsmenge, Schnittmenge: x
 - 2x SQL für Kartesischesprodukt (JOIN auch ok???)
 - 2x SQL für Mengenoperator (IN, NOT IN, EXISTS)
 - 4x SQL für GROUP BY + Aggregatefkt.
@@ -38,3 +38,4 @@
 
 ### 6. Javaprogramm für die einfache Verwaltung EINER Tabelle
 
+- Programm interface: x
