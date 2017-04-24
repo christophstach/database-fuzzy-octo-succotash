@@ -12,11 +12,11 @@
 ### 1. Planung
 
 - Themenauswahl: x
-- Beschreibung des Anwendungsfelds:
+- Beschreibung des Anwendungsfelds: -
  
 ### 2. ER
  
-- ER-Diagramm (min. 6 Entitätstypen):
+- ER-Diagramm (min. 6 Entitätstypen): x
 - Die Funktionalitäten den Beziehungen zuordnern: Fragen
 
 ### 3. Tabellen planen
@@ -31,10 +31,10 @@
 ### 5. Mathe+SQL Befehle
 
 - 1x Operatorbaum & SQL für Minus, Vereinigungsmenge, Schnittmenge: x
-- 2x SQL für Kartesischesprodukt (JOIN auch ok???)
-- 2x SQL für Mengenoperator (IN, NOT IN, EXISTS)
-- 4x SQL für GROUP BY + Aggregatefkt.
-- 2x SQL mit Having
+- 2x SQL für Kartesischesprodukt (JOIN auch ok???): x
+- 2x SQL für Mengenoperator (IN, NOT IN, EXISTS): x
+- 4x SQL für GROUP BY + Aggregatefkt.: x
+- 2x SQL mit Having: x
 
 ### 6. Javaprogramm für die einfache Verwaltung EINER Tabelle
 
